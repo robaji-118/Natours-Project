@@ -28,10 +28,19 @@
 
   &--white {
     background-color: $color-white;
-    color: #777;
+    color: $color-grey-dark;
 
     &:after {
     background-color: $color-white;
+     }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:after {
+    background-color: $color-primary;
      }
   }
 
@@ -78,7 +87,7 @@
 
   &:active{
     transform: translateY(0);
-    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+    box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
     
   }
 }
