@@ -1,10 +1,10 @@
-.story{
+.story {
     width: 75%;
     margin: 0 auto;
     box-shadow: 0 3rem 6rem rgba($color-black, .1);
     background-color: rgba($color-white, .6);
     border-radius: 3px;
-    padding: 6rem; 
+    padding: 6rem;
     padding-left: 9rem;
     font-size: $default-font-size;
     transform: skewX(-12deg);
@@ -13,13 +13,19 @@
     //     transform: skewX(12deg);
     // }
 
-    &__shape{
+    @media (max-width: 600px) {
+        width: 50%;
+    }
+
+
+
+    &__shape {
         width: 15rem;
         height: 15rem;
         // background-color: orangered;
         float: left;
-        -webkit-shape-outside: circle(50% at 50% 50%)  ;
-        shape-outside: circle(50% at 50% 50%)  ;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
 
         -webkit-clip-path: circle(50% at 50% 50%);
         clip-path: circle(50% at 50% 50%);
@@ -29,22 +35,22 @@
 
     }
 
-    &__img{
+    &__img {
         height: 100%;
         transform: translateX(-4rem) scale(1.4);
         transition: all .5s;
         backface-visibility: hidden;
     }
 
-    &__text{
+    &__text {
         transform: skewX(12deg);
     }
 
-    &__caption{
+    &__caption {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,20%);
+        transform: translate(-50%, 20%);
         color: $color-white;
         text-transform: uppercase;
         font-size: 1.7rem;
@@ -53,7 +59,8 @@
         transition: all .5s;
         backface-visibility: hidden;
     }
-    &:hover &__caption{
+
+    &:hover &__caption {
         opacity: 1;
         transform: translate(-50%, -50%);
         // background-color: rgba($color-black,1.0);
@@ -63,6 +70,6 @@
     &:hover &__img {
         transform: translateX(-4rem) scale(1);
         filter: blur(3px) brightness(80%);
-        
+
     }
 }
