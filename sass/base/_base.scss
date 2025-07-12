@@ -26,13 +26,11 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 3rem;
+  padding: 0;
 
 
   @include respond(tab-port) {
     padding: 0;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
   }
 
 }

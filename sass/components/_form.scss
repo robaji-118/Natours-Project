@@ -13,7 +13,7 @@
         background-color: rgba($color-white, .5);
         border: none;
         border-bottom: 3px solid transparent;
-        width: 90%;
+        width: 100%;
         display: block;
         transition: all .3s;
 
@@ -22,9 +22,9 @@
         }
 
         &:focus {
-        outline: none;
-        box-shadow: 0 1rem 2rem rgba($color-black, .1);
-        border-bottom: 3px solid $color-primary;
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
         }
 
         &:focus:invalid{
@@ -32,7 +32,7 @@
         } 
 
         &::-webkit-input-placeholder {
-        color: $color-grey-dark-2;
+            color: $color-grey-dark-2;
         }
 
 
@@ -60,7 +60,7 @@
 
         @include respond(tab-port){
             width: 100%;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             
         }
     } 

@@ -23,14 +23,16 @@
     box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
 
      &:after {
-    transform: scaleX(1.5) scaleY(1.6);
-    opacity: 0;
-  }
+      transform: scaleX(1.5) scaleY(1.6);
+      opacity: 0;
+    }
   }
 
-  &:active {
+  &:active,
+  &:focus{
+    outline: none;
     transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 2);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, .2);
   }
 
   &--white {
@@ -63,6 +65,10 @@
     transition: all 0.4s;
   }
 
+  &--white::after{
+    background-color: $color-white;
+  }
+
   
   &--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
@@ -86,14 +92,12 @@
     background-color: $color-primary;
     color: $color-white;
     box-shadow: 0 1rem 2rem rgba($color-black, .15);
-    border-radius:5px ;
-    padding: .5rem;
     transform: translateY(-2);
   }
 
   &:active{
     transform: translateY(0);
-    box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
     
   }
 }

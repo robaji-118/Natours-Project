@@ -71,13 +71,11 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 3rem;
+  padding: 0;
 }
 @media only screen and (max-width: 900px) {
   body {
     padding: 0;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
   }
 }
 
@@ -120,8 +118,8 @@ body {
 .heading-primary--sub {
   display: block;
   font-size: 2rem;
-  font-weight: 7 0;
-  letter-spacing: 1.74rem;
+  font-weight: 400;
+  letter-spacing: 1.75rem;
   animation-name: moveInRight;
   animation-duration: 1s;
   animation-timing-function: 0.1s ease-out;
@@ -140,7 +138,7 @@ body {
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
   color: transparent;
-  letter-spacing: 0.2rem;
+  letter-spacing: 2px;
   transition: all 0.2s;
 }
 @media only screen and (max-width: 900px) {
@@ -241,9 +239,10 @@ body {
   transform: scaleX(1.5) scaleY(1.6);
   opacity: 0;
 }
-.btn:active {
+.btn:active, .btn:focus {
+  outline: none;
   transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem black;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .btn--white {
   background-color: #fff;
@@ -271,6 +270,9 @@ body {
   z-index: -1;
   transition: all 0.4s;
 }
+.btn--white::after {
+  background-color: #fff;
+}
 .btn--animated {
   animation: moveInBottom 0.5s ease-out 0.75s;
   animation-fill-mode: backwards;
@@ -289,20 +291,18 @@ body {
   background-color: #55c57a;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
-  padding: 0.5rem;
   transform: translateY(-2);
 }
 .btn-text:active {
   transform: translateY(0);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .card {
   perspective: 150rem;
   -moz-perspective: 150rem;
-  height: 52rem;
   position: relative;
+  height: 52rem;
 }
 .card__side {
   height: 52rem;
@@ -321,6 +321,7 @@ body {
   background-color: #fff;
 }
 .card__side--back {
+  background-color: green;
   transform: rotateY(180deg);
 }
 .card__side--back-1 {
@@ -336,7 +337,7 @@ body {
   transform: rotateY(-180deg);
 }
 .card:hover .card__side--back {
-  transform: rotateY(0deg);
+  transform: rotateY(0);
 }
 .card__picture {
   background-size: cover;
@@ -418,7 +419,7 @@ body {
   font-size: 6rem;
   font-weight: 100;
 }
-@media only screen and (max-width: 900px), only screen and (hover: none) {
+@media only screen and (max-width: 56.25em), only screen and (hover: none) {
   .card {
     height: auto;
     border-radius: 3px;
@@ -432,7 +433,7 @@ body {
   }
   .card__side--back {
     transform: rotateY(0);
-    clip-path: polygon(0 15%, 100 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
   }
   .card:hover .card__side--front {
     transform: rotateY(0);
@@ -456,6 +457,17 @@ body {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .section-about {
+    margin-top: -12rem !important;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .section-about {
+    margin-top: -6rem !important;
+  }
+}
+
 .composition {
   position: relative;
 }
@@ -464,8 +476,8 @@ body {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   position: absolute;
   z-index: 10;
-  transition: all 0.4s;
-  outline-offset: 1rem;
+  transition: all 0.2s;
+  outline-offset: 2rem;
 }
 @media only screen and (max-width: 900px) {
   .composition__photo {
@@ -509,7 +521,7 @@ body {
 }
 .composition__photo:hover {
   outline: 1.5rem solid #55c57a;
-  transform: scale(1.2) translateY(-0.5rem);
+  transform: scale(1.05) translateY(-0.5rem);
   box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
   z-index: 20;
 }
@@ -545,7 +557,7 @@ body {
   }
 }
 .feature-box:hover {
-  transform: translateY(-1.5rem) scale(1.02);
+  transform: translateY(-1.5rem) scale(1.03);
 }
 .popup {
   height: 100vh;
@@ -644,7 +656,7 @@ body {
   background-color: rgba(255, 255, 255, 0.5);
   border: none;
   border-bottom: 3px solid transparent;
-  width: 90%;
+  width: 100%;
   display: block;
   transition: all 0.3s;
 }
@@ -684,7 +696,7 @@ body {
 @media only screen and (max-width: 900px) {
   .form__radio-group {
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
 }
 .form__radio-input {
@@ -879,7 +891,7 @@ body {
 }
 
 .header {
-  height: 80vh;
+  height: 85vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
@@ -900,7 +912,8 @@ body {
 @media only screen and (max-width: 600px) {
   .header {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 60vh, 0 100%);
+    height: 70vh;
   }
 }
 .header__logo-box {
@@ -947,6 +960,286 @@ body {
     right: 3rem;
   }
 }
+.navigation .navigation__checkbox {
+  display: none;
+}
+.navigation .navigation__button {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+@media only screen and (max-width: 900px) {
+  .navigation .navigation__button {
+    top: 4rem;
+    right: 4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+.navigation .navigation_background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+@media only screen and (max-width: 900px) {
+  .navigation .navigation_background {
+    top: 4.5rem;
+    right: 4.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation .navigation_background {
+    top: 3.5rem;
+    right: 3.5rem;
+  }
+}
+.navigation .navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.navigation .navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+.navigation .navigation__item {
+  margin: 1rem;
+}
+.navigation .navigation_link:link, .navigation .navigation_link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 250%;
+  transition: all 0.4s;
+}
+.navigation .navigation_link:link span, .navigation .navigation_link:visited span {
+  margin-right: 1.5rem;
+  display: inline-block;
+}
+.navigation .navigation_link:hover, .navigation .navigation_link:active {
+  background-position: 100%;
+  color: #55c57a;
+  transform: translateX(1rem);
+}
+.navigation .navigation__checkbox:checked ~ .navigation .navigation_background {
+  transform: scale(80);
+}
+.navigation .navigation__checkbox:checked ~ .navigation .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+.navigation .navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.navigation .navigation__icon__checkbox, .navigation .navigation__icon .navigation__checkbox {
+  display: none;
+}
+.navigation .navigation__icon__button, .navigation .navigation__icon .navigation__button {
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  border-radius: 50%;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+@media only screen and (max-width: 900px) {
+  .navigation .navigation__icon__button, .navigation .navigation__icon .navigation__button {
+    top: 4rem;
+    right: 4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation .navigation__icon__button, .navigation .navigation__icon .navigation__button {
+    top: 3rem;
+    right: 3rem;
+  }
+}
+.navigation .navigation__icon_background, .navigation .navigation__icon .navigation_background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  z-index: 1000;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+@media only screen and (max-width: 900px) {
+  .navigation .navigation__icon_background, .navigation .navigation__icon .navigation_background {
+    top: 4.5rem;
+    right: 4.5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navigation .navigation__icon_background, .navigation .navigation__icon .navigation_background {
+    top: 3.5rem;
+    right: 3.5rem;
+  }
+}
+.navigation .navigation__icon__nav, .navigation .navigation__icon .navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.navigation .navigation__icon__list, .navigation .navigation__icon .navigation__list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  width: 100%;
+}
+.navigation .navigation__icon__item, .navigation .navigation__icon .navigation__item {
+  margin: 1rem;
+}
+.navigation .navigation__icon_link:link, .navigation .navigation__icon_link:visited, .navigation .navigation__icon .navigation_link:link, .navigation .navigation__icon .navigation_link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 250%;
+  transition: all 0.4s;
+}
+.navigation .navigation__icon_link:link span, .navigation .navigation__icon_link:visited span, .navigation .navigation__icon .navigation_link:link span, .navigation .navigation__icon .navigation_link:visited span {
+  margin-right: 1.5rem;
+  display: inline-block;
+}
+.navigation .navigation__icon_link:hover, .navigation .navigation__icon_link:active, .navigation .navigation__icon .navigation_link:hover, .navigation .navigation__icon .navigation_link:active {
+  background-position: 100%;
+  color: #55c57a;
+  transform: translateX(1rem);
+}
+.navigation .navigation__icon__checkbox:checked ~ .navigation .navigation__icon_background, .navigation .navigation__icon__checkbox:checked ~ .navigation .navigation__icon .navigation_background, .navigation .navigation__icon .navigation__checkbox:checked ~ .navigation .navigation__icon_background, .navigation .navigation__icon .navigation__checkbox:checked ~ .navigation .navigation__icon .navigation_background {
+  transform: scale(80);
+}
+.navigation .navigation__icon__checkbox:checked ~ .navigation .navigation__icon__nav, .navigation .navigation__icon__checkbox:checked ~ .navigation .navigation__icon .navigation__nav, .navigation .navigation__icon .navigation__checkbox:checked ~ .navigation .navigation__icon__nav, .navigation .navigation__icon .navigation__checkbox:checked ~ .navigation .navigation__icon .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+.navigation .navigation__icon__icon, .navigation .navigation__icon .navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.navigation .navigation__icon__icon, .navigation .navigation__icon__icon::before, .navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__icon, .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+}
+.navigation .navigation__icon__icon::before, .navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation .navigation__icon__icon::before, .navigation .navigation__icon .navigation__icon::before {
+  top: -0.8rem;
+}
+.navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation .navigation__icon__button:hover .navigation .navigation__icon__icon::before, .navigation .navigation__icon__button:hover .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon .navigation__button:hover .navigation .navigation__icon__icon::before, .navigation .navigation__icon .navigation__button:hover .navigation .navigation__icon .navigation__icon::before {
+  top: -1rem;
+}
+.navigation .navigation__icon__button:hover .navigation .navigation__icon__icon::after, .navigation .navigation__icon__button:hover .navigation .navigation__icon .navigation__icon::after, .navigation .navigation__icon .navigation__button:hover .navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__button:hover .navigation .navigation__icon .navigation__icon::after {
+  top: 1rem;
+}
+.navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon {
+  background-color: transparent;
+}
+.navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon::before, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon::before, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon::before, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon::before, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon::before, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon::after, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon::after, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon::after, .navigation .navigation__icon__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon::after, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon__button .navigation .navigation__icon .navigation__icon::after, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon__icon::after, .navigation .navigation__icon .navigation__checkbox:checked + .navigation .navigation__icon .navigation__button .navigation .navigation__icon .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+.navigation .navigation__icon::before, .navigation .navigation__icon::after {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+}
+.navigation .navigation__icon::before, .navigation .navigation__icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation .navigation__icon::before {
+  top: -0.8rem;
+}
+.navigation .navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation .navigation__button:hover .navigation .navigation__icon::before {
+  top: -1rem;
+}
+.navigation .navigation__button:hover .navigation .navigation__icon::after {
+  top: 1rem;
+}
+.navigation .navigation__checkbox:checked + .navigation .navigation__button .navigation .navigation__icon {
+  background-color: transparent;
+}
+.navigation .navigation__checkbox:checked + .navigation .navigation__button .navigation .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation .navigation__checkbox:checked + .navigation .navigation__button .navigation .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
 .navigation__background {
   height: 6rem;
   width: 6rem;
@@ -978,7 +1271,6 @@ body {
   top: 0;
   left: 0;
   z-index: 1500;
-  pointer-events: none;
   transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 .navigation__list {
@@ -1002,7 +1294,7 @@ body {
   text-transform: uppercase;
   padding: 1rem 2rem;
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
-  background-size: 220%;
+  background-size: 250%;
   transition: all 0.4s;
 }
 .navigation__link:link span, .navigation__link:visited span {
@@ -1020,24 +1312,22 @@ body {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
-  pointer-events: auto;
 }
 .navigation__icon {
   position: relative;
   margin-top: 3.5rem;
-  transition: all 0.2s;
 }
 .navigation__icon, .navigation__icon::before, .navigation__icon::after {
   width: 3rem;
   height: 2px;
   background-color: #333;
   display: inline-block;
-  transition: all 0.2s;
 }
 .navigation__icon::before, .navigation__icon::after {
   content: "";
   position: absolute;
   left: 0;
+  transition: all 0.2s;
 }
 .navigation__icon::before {
   top: -0.8rem;
@@ -1196,7 +1486,7 @@ body {
 }
 
 .book {
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 70%, transparent 70%), url(../img/nat-10.jpg);
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
   background-size: 100%;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
@@ -1209,8 +1499,7 @@ body {
 }
 @media only screen and (max-width: 900px) {
   .book {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%, transparent 65%), url(../img/nat-10.jpg);
-    background-size: cover;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg);
   }
 }
 .book__form {
