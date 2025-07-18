@@ -593,9 +593,28 @@ body {
   transform: translate(-50%, -50) scale(0.25);
   transition: all 0.5s 0.2s;
 }
+@media only screen and (max-width: 600px) {
+  .popup__content {
+    width: 80%;
+    transform: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80vh;
+    overflow-y: auto;
+    display: block;
+  }
+}
 .popup__left {
   width: 33.333333%;
   display: table-cell;
+}
+@media only screen and (max-width: 600px) {
+  .popup__left {
+    display: block;
+    width: 100%;
+  }
 }
 .popup__right {
   width: 66.6666667%;
@@ -603,9 +622,21 @@ body {
   vertical-align: middle;
   padding: 3rem 5rem;
 }
+@media only screen and (max-width: 600px) {
+  .popup__right {
+    display: block;
+    width: 100%;
+    padding: 2rem;
+  }
+}
 .popup__img {
   display: block;
   width: 100%;
+}
+@media only screen and (max-width: 600px) {
+  .popup__img {
+    max-height: 25rem;
+  }
 }
 .popup__text {
   font-size: 1.4rem;
