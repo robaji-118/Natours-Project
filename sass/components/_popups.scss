@@ -11,6 +11,15 @@
   visibility: hidden;
   transition: all 0.3s;
 
+  @include respond(phone) {
+    // position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+  }
+
   @supports (-webkit-backdrop-filter: blur(10px)) or
     (backdrop-filter: blur(10px)) {
     -webkit-backdrop-filter: blur(10px);
@@ -36,9 +45,12 @@
       height: 55rem;
     }
 
-    @include respond(tab-port) {
-      width: 50rem;
       
+  
+    
+
+    @include respond(tab-port) {
+      width: 80%;
       display: flex;
       flex-direction: column;
       height: auto;
@@ -47,7 +59,7 @@
      @include respond(phone) {
       width: 90%;
       height: auto;
-      padding: 2rem;
+      // padding: 2rem;
       box-shadow: none;
       border-radius: 0;
     }
@@ -64,6 +76,8 @@
       height: 20rem;
     }
 
+    
+
     @include respond(phone) {
       height: 15rem;
     }
@@ -79,11 +93,11 @@
     @include respond(tab-port) {
       display: block;
       width: 100%;
-      padding: 2rem 3rem;
+      // padding: 2rem 3rem;
     }
 
      @include respond(phone){
-            padding: 2rem;
+            // padding: 2rem;
         }
   }
 
@@ -93,8 +107,18 @@
     height: 50%;
     object-fit: cover;
 
+    @include respond(tab-land) {
+        width: 100%;
+        height: 50%;
+    }
+
+    @include respond(normal-desktop) {
+        width: 100%;
+        height: 50%;
+    }
+
      @include respond(tab-port) {
-      width: 50%;
+      width: 80%;
       height: 100%;
     }
 
